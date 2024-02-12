@@ -16,9 +16,21 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-0e731c8a588258d0d"
   instance_type = "t2.micro"
-  key_name = "kaue-iac"
+  key_name      = "kaue-iac"
+  
+  # user_data = <<-EOF
+  #  #!/bin/bash
+  #  yum update -y
+  #  yum install httpd -y
+  #  service httpd start
+  #  chkconfig httpd on
+  #  echo "<h1>Feito com Terraform</h1>" > /var/www/html/index.html
+
+  # EOF
 
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = "Teste-Terraform"
   }
 }
+      
+      
